@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+void one(char str[], const int k) {
+	char number[50];
+	int j = 0;
+	int amount = 0;
+	for (int i = 0; i < strlen(str); i++) {
+		if (str[i] != '+') {
+			number[j] = str[i];
+			j++;
+		}
+		else {
+			int num = stoi(number);
+			amount += num;
+			for (int i = 0; i < 50; i++) {
+				number[i] = ' ';
+			}
+		}		
+	}
+	amount += stoi(number);
+	cout << amount;
+}
+
+int main() {
+	setlocale(LC_ALL, "russian");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	const int k = 100;
+	char s[k];
+	cin.getline(s, k);
+	one(s, k);
+	return 0;
+}
